@@ -1,0 +1,187 @@
+
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B8J51D8M3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B8J51D8M3W');
+</script>
+
+
+    <style>
+        .row {
+            display: flex;
+            /* equal height of the children */
+        }
+
+        .col {
+            flex: 1;
+            /* additionally, equal width */
+
+            padding: 1em;
+            border: solid;
+        }
+
+
+        p,
+        label {
+            font: 1rem 'Fira Sans', sans-serif;
+        }
+
+        input {
+            margin: 0.4rem;
+        }
+
+        iframe{
+            width: 100%;
+            min-height: 700px;
+        }
+        .center {
+  text-align: center;
+  padding: 5px;
+  /* border: 2px solid black; */
+}
+    </style>
+</head>
+
+<body>
+
+
+
+
+    <div>
+        <div class="row">
+           
+            <div class="col">
+                <div class="center">
+                    <img id = "Logo_2" src = "./Logos/Aqaar.png" style="max-height: 30px;text-align: center;"></img>
+                  </div>
+                <fieldset id="fs_2">
+                    <legend>Select Platform & Purpose</legend>
+                    <p>Platform: &nbsp;  &nbsp; &nbsp;
+                    <select id="platform2">
+                        <option value="Haraaj" >Haraaj</option>
+                        <!-- <option value="Property_Finder">Property Finder</option> -->
+                    </select>
+                    </p>    
+                    <p>Region: &nbsp; &nbsp; &nbsp; &nbsp;
+                    <select id="regions2">
+                        <option value="Riyadh">Riyadh</option>
+                        <option value="Makkah">Makkah</option>
+                        <option value="Madinah">Madinah</option>
+                        <option value="Qassim">Qassim</option>
+                        <option value="Eastern_Province">Eastern Province</option>
+                        <option value="Asir">Asir</option>
+                        <option value="Tabuk">Tabuk</option>
+                        <option value="Hail">Hail</option>
+                        <option value="Northern_Borders">Northern Borders</option>
+                        <option value="Jazan">Jazan</option>
+                        <option value="Najran">Najran</option>
+                        <option value="Bahah">Bahah</option>
+                        <option value="Jawf">Jawf</option>
+                    </select>
+
+</p>
+
+                    <div>
+                        <input type="radio"id="purpose_2" name="purpose_2" value="Total" checked>
+                        <label for="total">Overall</label>
+                    </div>
+                    <div>
+                        <input type="radio"id="purpose_2" name="purpose_2" value="C2C" checked>
+                        <label for="c2c">C2C</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="purpose_2"name="purpose_2" value="B2C">
+                        <label for="b2c">B2C</label>
+                    </div>
+
+                    <p>Category: &nbsp; &nbsp; &nbsp; &nbsp;
+
+                        <select id="category2">
+                            <option value="Overall">All Listers</option>
+                            <option value="C2C">C2C</option>
+                            <option value="Soho">Soho</option>
+                            <option value="Small">Small Dealer</option>
+                            <option value="Medium">Medium Dealer</option>
+                            <option value="Large">Large Dealer</option>
+                            
+                        </select>
+                </p>  
+
+                </fieldset>
+                <div>
+                    <iframe src="./Haraaj/Riyadh/Overall/total.html" frameborder="0" id="iframeId_2"></iframe>
+                </div>
+                <div><a href='/haraaj/riyadh/overall/total' id='fullscr_2' target='_blank'>View in Full Screen</a>
+
+                </div>
+</div>
+        </div>
+
+
+    </div>
+
+    <script>
+
+
+        $(document).ready(function () {
+            $("#platform2").change(function () {
+                cur_path = $("#iframeId_2").attr("src")
+                ss = (cur_path.split("/"))
+                ss[1] = $("#platform2").val()
+                $("#iframeId_2").attr("src", ss.join("/"))
+                $("#fullscr_2").attr("href", ss.join("/"))
+
+                cur_path = $("#Logo_2").attr("src")
+                ss = (cur_path.split("/"))
+                ss[2] = $("#platform2").val()+".png"
+
+                $("#Logo_2").attr("src", ss.join("/"))
+                
+
+
+            });
+            $("#regions2").change(function () {
+                cur_path = $("#iframeId_2").attr("src")
+                ss = (cur_path.split("/"))
+                ss[2] = $("#regions2").val()
+                $("#iframeId_2").attr("src", ss.join("/"))
+                $("#fullscr_2").attr("href", ss.join("/"))
+            });
+
+            $('#fs_2 input:radio').on('change', function () {
+                var value = $(this).val();
+                cur_path = $("#iframeId_2").attr("src")
+                ss = (cur_path.split("/"))
+                ss[4] = value+'.html'
+
+                $("#iframeId_2").attr("src", ss.join("/"))
+                $("#fullscr_2").attr("href", ss.join("/"))
+            });
+
+
+            $("#category2").change(function () {
+
+          
+
+            cur_path = $("#iframeId_2").attr("src")
+            ss = (cur_path.split("/"))
+            ss[3] = $("#category2").val()
+            $("#iframeId_2").attr("src", ss.join("/"))
+            $("#fullscr_12").attr("href", ss.join("/"))
+
+});
+        });
+    </script>
+
+</body>
+
+</html>
